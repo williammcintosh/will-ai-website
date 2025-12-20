@@ -47,9 +47,10 @@ header {
 }
 
 .logo {
-  width: clamp(180px, 32vw, 260px);
+  width: clamp(236px, 38vw, 320px);
   height: auto;
   filter: drop-shadow(0 10px 30px rgba(15, 23, 32, 0.08));
+  margin-bottom: 8px;
 }
 
 h1,
@@ -86,8 +87,8 @@ p:last-child {
 .principles {
   padding: 14px 16px 16px;
   border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(199, 245, 143, 0.16);
+  border: 1px solid #f4dec8;
+  background: #fff8f1;
   box-shadow: 0 10px 22px rgba(15, 23, 32, 0.04);
 }
 
