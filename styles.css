@@ -68,6 +68,7 @@ h1 {
 
 h2 {
   font-size: var(--h2);
+  color: #810000;
 }
 
 h3 {
@@ -194,8 +195,8 @@ p:last-child {
   gap: var(--space-sm);
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
+.contact-form input[type='text'],
+.contact-form input[type='email'],
 .contact-form textarea {
   width: 100%;
   padding: 12px 14px;
@@ -239,7 +240,7 @@ p:last-child {
   box-shadow: 0 4px 10px rgba(15, 23, 32, 0.05);
 }
 
-.phone-field input[type="tel"] {
+.phone-field input[type='tel'] {
   width: 100%;
 }
 
