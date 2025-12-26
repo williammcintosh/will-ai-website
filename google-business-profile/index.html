@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Business Profile Help | Review Fuel NZ</title>
+    <meta
+      name="description"
+      content="Google Business Profile help for NZ businesses. Fix your Google business listing, improve your Google Business Profile, and get found when people search locally."
+    />
+    <link rel="icon" href="../reviewfuelfav.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <div id="header-slot"></div>
+
+    <div class="wrap">
+      <header>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <p>
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/#services">Services</a>
+            <span>/</span>
+            <span aria-current="page">Google Business Profile</span>
+          </p>
+        </nav>
+
+        <div class="hero-layout">
+          <div class="hero-stack">
+            <h1>Google Business Profile help that gets results</h1>
+            <p class="lead">
+              If your business is not showing on Google, it is usually something
+              small but important. Wrong category, missing services, messy
+              details, or a half finished profile. We fix your Google business
+              listing and improve your Google Business Profile so you show up
+              for real local searches.
+            </p>
+
+            <div class="principles-wrap">
+              <div class="principles">
+                <h3>Clean profile. Clear info. More trust.</h3>
+                <p>
+                  Review Fuel works with small to medium New Zealand businesses
+                  with physical locations or local service areas. We keep the
+                  profile accurate, active, and human so Google and customers
+                  can trust it.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img
+              class="card-visual"
+              src="../images/google_profile_cleanup.png"
+              alt="Google Business Profile cleanup example"
+            />
+          </div>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="how">
+        <div class="section-header">
+          <h1 id="how">How it works</h1>
+          <p>
+            Quick process, no drama. We look at what Google sees, fix the
+            basics, then tighten it so it matches how you actually run your
+            business.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Why is my business not showing on Google?</h2>
+            <p>
+              Common causes are wrong categories, missing services, bad
+              locations, duplicate listings, inconsistent contact details, or a
+              profile that looks inactive. Sometimes it is as simple as your
+              hours, service area, or name not lining up across your website and
+              listing.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>How do you fix a Google business listing?</h2>
+            <p>
+              We clean up your core details and structure. Categories, services,
+              description, photos, links, and anything that confuses Google or
+              customers. The goal is a listing that reads clearly and matches
+              reality.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>How do you improve a Google Business Profile?</h2>
+            <p>
+              We make it look alive and legit. Better service descriptions, real
+              photos, sensible Q&amp;A, and a plan for steady review activity.
+              This helps you show up more often and look like the obvious choice
+              when people compare options.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="activity">
+        <div class="section-header">
+          <h1 id="activity">Profile activity and Q&amp;A</h1>
+          <p>
+            A Google Business Profile should answer questions before customers
+            even call.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Google Q&amp;A that actually helps</h2>
+            <p>
+              We add and answer common questions directly on your Google
+              Business Profile. This stops confusion, prevents random answers
+              from the public, and helps customers decide faster.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Photos that show real operations</h2>
+            <p>
+              We guide what photos to add so your listing reflects real work,
+              real locations, and real people. This builds trust and helps when
+              a business is not showing on Google consistently.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Light activity that keeps the profile alive</h2>
+            <p>
+              You do not need constant posting. We add sensible updates only
+              when they make sense, so the profile stays active without turning
+              into busy work.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq">
+        <div class="section-header">
+          <h1 id="faq">Quick answers</h1>
+          <p>Stuff business owners actually ask.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Do you need admin access?</h2>
+            <p>
+              Yes. To fix your Google business listing properly, we need admin
+              access to your Google Business Profile. We only touch what is
+              agreed in the plan.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Can you do this if I am service area only?</h2>
+            <p>
+              Yep. Trades and mobile services are common. We set it up so you
+              can show up locally without needing customers to walk into a shop.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Will this alone get me more customers?</h2>
+            <p>
+              It helps a lot, but the real win is pairing it with review
+              requests and review replies so your profile stays active and keeps
+              building trust over time.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <div id="contact-slot"></div>
+    </div>
+
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>

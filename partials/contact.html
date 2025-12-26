@@ -1,0 +1,56 @@
+<section class="section contact" aria-labelledby="contact">
+  <div class="section-header">
+    <h1 id="contact">Get in touch</h1>
+    <p>Share what makes you distinct and what you need help with.</p>
+  </div>
+  <div class="form-card">
+    <form
+      class="contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+    >
+      <input
+        type="hidden"
+        name="access_key"
+        value="eb5b7b29-de7a-4abc-8f2d-2a5c48028db8"
+      />
+      <input
+        type="hidden"
+        name="redirect"
+        value="https://reviewfuel.co.nz/thanks.html"
+      />
+      <input type="hidden" name="subject" value="New website contact" />
+      <input type="hidden" name="from_name" value="reviewfuel.co.nz" />
+      <input
+        type="checkbox"
+        name="botcheck"
+        class="sr-only"
+        tabindex="-1"
+        autocomplete="off"
+      />
+
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="text" name="business" placeholder="Business name" required />
+      <input type="text" name="location" placeholder="Location" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <div class="phone-field">
+        <span class="flag">🇳🇿</span>
+        <input
+          type="tel"
+          name="phone"
+          placeholder="NZ phone (e.g. 021 123 4567)"
+          inputmode="tel"
+          aria-label="New Zealand phone number"
+        />
+      </div>
+      <textarea
+        name="message"
+        placeholder="How can I help?"
+        rows="4"
+        required
+      ></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>

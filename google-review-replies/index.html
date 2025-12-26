@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Replies | Review Fuel NZ</title>
+    <meta
+      name="description"
+      content="Should I reply to Google reviews? Review Fuel helps NZ businesses manage Google reviews for business, reply to negative Google reviews, and keep your profile active and trustworthy."
+    />
+    <link rel="icon" href="../reviewfuelfav.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <div id="header-slot"></div>
+    <div class="wrap">
+      <header>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <p>
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/#services">Services</a>
+            <span>/</span>
+            <span aria-current="page">Google Review Replies</span>
+          </p>
+        </nav>
+
+        <div class="hero-layout">
+          <div class="hero-stack">
+            <h1>Reply to Google reviews sounding helpful</h1>
+            <p class="lead">
+              Business owners ask this all the time. Should I reply to Google
+              reviews? Yes. It shows you are real, it builds trust, and it helps
+              people choose you. We manage Google reviews for business and write
+              replies that match your voice.
+            </p>
+
+            <div class="principles-wrap">
+              <div class="principles">
+                <h3>Short. Warm. Specific.</h3>
+                <p>
+                  We reply to positive and negative reviews in a way that sounds
+                  like a human. No corporate waffle, no defensive tone, and no
+                  oversharing. Just a solid response that makes future customers
+                  feel safe picking you.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img
+              class="card-visual"
+              src="../images/replies-to-reviews.png"
+              alt="Example replies to Google reviews"
+            />
+          </div>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="how">
+        <div class="section-header">
+          <h1 id="how">How it works</h1>
+          <p>
+            We agree on your tone, then we write replies that reference what the
+            customer actually said. Here are examples.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Example. Good review reply</h2>
+            <p>
+              <strong>Review</strong><br />
+              “Super quick, friendly staff, and the job was done properly.
+              Cheers!”
+            </p>
+            <p>
+              <strong>Reply</strong><br />
+              “Thanks for the kind words. Stoked we could get it sorted quickly.
+              Appreciate you taking the time to leave a review.”
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Example. Neutral review reply</h2>
+            <p>
+              <strong>Review</strong><br />
+              “Good service but the wait was longer than expected.”
+            </p>
+            <p>
+              <strong>Reply</strong><br />
+              “Thanks for the feedback. Sorry about the wait on the day. We are
+              tightening up our scheduling so it runs smoother next time.”
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Example. Reply to negative Google reviews</h2>
+            <p>
+              <strong>Review</strong><br />
+              “Not happy. The communication was poor and it took ages.”
+            </p>
+            <p>
+              <strong>Reply</strong><br />
+              “Sorry to hear that. That is not the experience we want anyone to
+              have. If you are open to it, please email or call us with the job
+              details so we can look into what happened and make it right.”
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq">
+        <div class="section-header">
+          <h1 id="faq">Quick answers</h1>
+          <p>Stuff business owners actually ask.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Should I reply to Google reviews?</h2>
+            <p>
+              Yep. Replying shows you are active and gives you a chance to
+              reinforce trust. It also helps when people compare you to the
+              business next door.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>What is the right tone?</h2>
+            <p>
+              Calm and short. Thank them, reference something specific, then
+              move on. For negatives, acknowledge, invite offline follow up, and
+              do not argue in public.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Can you do it hands off?</h2>
+            <p>
+              Yes. With admin access to your Google Business Profile, we can
+              manage Google reviews for business and keep replies consistent
+              with your voice and boundaries.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <div id="contact-slot"></div>
+    </div>
+
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>

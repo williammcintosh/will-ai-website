@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Automation | Review Fuel NZ</title>
+    <meta
+      name="description"
+      content="Automate Google review requests the right way. Review Fuel helps NZ businesses send review request SMS and manage review request follow up without spamming customers."
+    />
+    <link rel="icon" href="../reviewfuelfav.ico" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <div id="header-slot"></div>
+    <div class="wrap">
+      <header>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <p>
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/#services">Services</a>
+            <span>/</span>
+            <span aria-current="page">Review Automation</span>
+          </p>
+        </nav>
+
+        <div class="hero-layout">
+          <div class="hero-stack">
+            <h1>Review automation that still feels human</h1>
+            <p class="lead">
+              Once review requests are working manually, the next step is to
+              automate Google review requests without losing trust. We set this
+              up carefully so customers still feel like the message came from
+              you.
+            </p>
+
+            <div class="principles-wrap">
+              <div class="principles">
+                <h3>Past customers first. Future customers later.</h3>
+                <p>
+                  We never turn automation on blindly. We start with past
+                  customers, dial in tone and timing, then move to automated
+                  review request follow up for new jobs once everything feels
+                  right.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img
+              class="card-visual"
+              src="../images/future-automation.png"
+              alt="Review automation workflow overview"
+            />
+          </div>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="how">
+        <div class="section-header">
+          <h1 id="how">How it works</h1>
+          <p>
+            Automation works best when it is boring, predictable, and
+            respectful.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Step 1. Prove the message works</h2>
+            <p>
+              Before we automate anything, we test review request SMS with past
+              customers. This confirms the wording, timing, and tone actually
+              get reviews without complaints.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Step 2. Choose the right timing</h2>
+            <p>
+              Review request follow up should happen after the service is done,
+              not days later and not instantly. We help pick a delay that fits
+              how your business actually runs.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Step 3. Automate only what makes sense</h2>
+            <p>
+              Once the process is proven, we automate Google review requests for
+              future customers. One message. One clear purpose. Always with an
+              opt out.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq">
+        <div class="section-header">
+          <h1 id="faq">Quick answers</h1>
+          <p>Stuff business owners actually ask.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Is this spam?</h2>
+            <p>
+              No. Messages are sent only to existing customers after a real sale
+              or service. This is transactional follow up, not marketing blasts.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Can I pause or change it?</h2>
+            <p>
+              Yes. Automation is adjustable. We can tweak timing, wording, or
+              stop it completely if your workflow changes.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Do I need special software?</h2>
+            <p>
+              No. We handle the setup. You do not need to learn a new system or
+              manage dashboards.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <div id="contact-slot"></div>
+    </div>
+
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>
