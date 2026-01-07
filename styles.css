@@ -45,7 +45,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
+  margin-bottom: clamp(2vw, 1vw, 140px);
 }
 
 .logo {
@@ -87,26 +87,23 @@ p:last-child {
   margin-bottom: 0;
 }
 
-.principles {
-  padding: 14px 16px 16px;
-  border-radius: 12px;
-  border: 1px solid #f4dec8;
-  background: #fff8f1;
-  box-shadow: 0 10px 22px rgba(15, 23, 32, 0.04);
-}
-
-.principles h3 {
-  margin-bottom: 6px;
-}
-
 .hero-stack {
   display: grid;
-  gap: var(--space-sm);
+  gap: 12px;
 }
 
-.principles-wrap {
-  display: grid;
-  gap: var(--space-sm);
+.lead {
+  font-size: 17px;
+}
+
+.hero-proof {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.hero-trust,
+.hero-extra {
+  font-size: 14px;
 }
 
 .section {
@@ -412,6 +409,10 @@ p:last-child {
 }
 
 @media (max-width: 900px) {
+  header {
+    margin-bottom: var(--space-lg);
+  }
+
   .hero-layout {
     grid-template-columns: 1fr;
   }
