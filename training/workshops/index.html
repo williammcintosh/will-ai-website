@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Training Workshops | Review Fuel</title>
+    <link rel="icon" href="/reviewfuelfav.ico" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="header-slot"></div>
+    <div class="wrap">
+      <main class="section">
+        <h1>Training Workshops</h1>
+        <p>
+          Hands-on workshops for teams who want shared habits. No bundling and
+          no obligation to buy implementation.
+        </p>
+        <p>Workshop options (eligible subjects):</p>
+        <ul>
+          <li>
+            Review Request Systems: for front desk and managers; learn when to
+            ask and what to say; produce a simple ask script and follow-up
+            checklist.
+          </li>
+          <li>
+            Review Reply Confidence: for owners and admins; learn tone,
+            response triage, and risk basics; produce a reply style guide and
+            response templates.
+          </li>
+          <li>
+            Google Business Profile Essentials: for owners and team leads; learn
+            what matters in the profile and how to keep it accurate; produce a
+            monthly profile checklist.
+          </li>
+          <li>
+            Local Visibility Basics: for small teams doing their own marketing;
+            learn simple on-page and Q&amp;A habits; produce a content prompt
+            list and weekly cadence plan.
+          </li>
+        </ul>
+      </main>
+      <div id="contact-slot"></div>
+    </div>
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>

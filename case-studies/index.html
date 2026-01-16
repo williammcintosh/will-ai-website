@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Studies | Review Fuel</title>
+    <link rel="icon" href="/reviewfuelfav.ico" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="header-slot"></div>
+    <div class="wrap">
+      <main class="section">
+        <h1>Case Studies</h1>
+        <p>
+          Pilot examples being updated. These templates show the type of
+          capability gains and owner-led systems we focus on.
+        </p>
+        <h2>Pilot Example: [Trade Business]</h2>
+        <ul>
+          <li>Challenge: Reviews asked for inconsistently.</li>
+          <li>Skills gained: Front-desk ask habit and timing confidence.</li>
+          <li>System set up by owner: Simple ask script and weekly checklist.</li>
+          <li>Confidence: Owner reports less uncertainty about what to say.</li>
+        </ul>
+        <h2>Pilot Example: [Health or Wellness Practice]</h2>
+        <ul>
+          <li>Challenge: Unsure how to reply to mixed feedback.</li>
+          <li>Skills gained: Reply tone, triage, and response structure.</li>
+          <li>System set up by owner: Reply calendar and template library.</li>
+          <li>Confidence: Team can reply without second guessing.</li>
+        </ul>
+      </main>
+      <div id="contact-slot"></div>
+    </div>
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>

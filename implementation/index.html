@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementation | Review Fuel</title>
+    <link rel="icon" href="/reviewfuelfav.ico" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="header-slot"></div>
+    <div class="wrap">
+      <main class="section">
+        <h1>Implementation</h1>
+        <p>Implementation is paid work and is not part of any subsidy.</p>
+        <p>Hands-on services that improve reviews, visibility, and trust.</p>
+        <div class="grid">
+          <article class="card">
+            <h2>AI-Personalised Texts</h2>
+            <p>Turn real customers into reviews instead of losing proof of good work.</p>
+            <a class="btn" href="/google-review-requests/">Find out more</a>
+          </article>
+
+          <article class="card">
+            <h2>Google profile cleanup</h2>
+            <p>Stop Google showing the wrong info, or nothing at all.</p>
+            <a class="btn" href="/google-business-profile/">Find out more</a>
+          </article>
+
+          <article class="card">
+            <h2>Review replies</h2>
+            <p>Unreplied reviews quietly kill trust.</p>
+            <a class="btn" href="/google-review-replies/">Find out more</a>
+          </article>
+
+          <article class="card">
+            <h2>Local SEO tune-up</h2>
+            <p>If you are not visible, you are invisible.</p>
+            <a class="btn" href="/local-seo-tune-up/">Find out more</a>
+          </article>
+
+          <article class="card">
+            <h2>Future automation</h2>
+            <p>Once your voice is dialed in, follow ups run on autopilot.</p>
+            <a class="btn" href="/review-automation/">Find out more</a>
+          </article>
+        </div>
+      </main>
+      <div id="contact-slot"></div>
+    </div>
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>

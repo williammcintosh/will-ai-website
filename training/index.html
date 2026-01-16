@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Training | Review Fuel</title>
+    <link rel="icon" href="/reviewfuelfav.ico" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="header-slot"></div>
+    <div class="wrap">
+      <main class="section">
+        <h1>Training</h1>
+        <p>
+          Two lanes: Training builds capability in your team, implementation is
+          a separate paid service. No bundling and no obligation to buy
+          implementation.
+        </p>
+        <p>
+          Choose <a href="/training/workshops/">workshops</a> for shared team
+          learning or <a href="/training/1to1/">1-to-1 coaching</a> for owner-led
+          change.
+        </p>
+        <p>Typical training engagement:</p>
+        <ul>
+          <li>Short discovery call to set the focus and who should attend.</li>
+          <li>In-person Auckland session or remote session if needed.</li>
+          <li>Simple playbook, scripts, and checklists to run in-house.</li>
+          <li>Owner-led practice and follow-up Q&amp;A to lock in habits.</li>
+        </ul>
+      </main>
+      <div id="contact-slot"></div>
+    </div>
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>

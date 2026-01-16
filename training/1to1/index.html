@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-to-1 Training | Review Fuel</title>
+    <link rel="icon" href="/reviewfuelfav.ico" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="header-slot"></div>
+    <div class="wrap">
+      <main class="section">
+        <h1>1-to-1 Training</h1>
+        <p>
+          Focused coaching for owners and key staff who need direct guidance. No
+          bundling and no obligation to buy implementation.
+        </p>
+        <p>Bespoke 1-to-1 options:</p>
+        <ul>
+          <li>
+            Review Habit Reset: challenge is inconsistent asking; outcomes are
+            a repeatable ask habit; owner does daily asks and logs; I coach the
+            script, timing, and follow-up.
+          </li>
+          <li>
+            Reply Confidence Coaching: challenge is avoiding replies; outcomes
+            are calm, consistent responses; owner replies weekly; I coach tone,
+            triage, and risk basics.
+          </li>
+          <li>
+            Profile Stewardship: challenge is outdated info; outcomes are a
+            simple update routine; owner checks and updates monthly; I coach the
+            checklist and quality control.
+          </li>
+          <li>
+            Local Presence Sprint: challenge is low local trust; outcomes are
+            steady visibility habits; owner publishes small updates; I coach the
+            cadence and quality bar.
+          </li>
+        </ul>
+      </main>
+      <div id="contact-slot"></div>
+    </div>
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>

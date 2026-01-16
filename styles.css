@@ -92,6 +92,12 @@ p:last-child {
   gap: 12px;
 }
 
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
 .lead {
   font-size: 17px;
 }
