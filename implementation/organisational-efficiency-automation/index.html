@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-5QB86N8Q');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17832460388"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17832460388');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organisational Efficiency Automation | Review Fuel</title>
+    <meta
+      name="description"
+      content="Streamline admin and information flow with practical systems, Excel improvements, and light AI support."
+    />
+    <link rel="icon" href="../../reviewfuelfav.ico" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5QB86N8Q"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="header-slot"></div>
+    <div class="wrap">
+      <header>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <p>
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/implementation/">Implementation</a>
+            <span>/</span>
+            <span aria-current="page">Organisational Efficiency Automation</span>
+          </p>
+        </nav>
+
+        <div class="hero-layout">
+          <div class="hero-stack">
+            <h1>Organisational efficiency automation</h1>
+            <p class="lead">
+              Reduce admin drag and tighten information flow. We clean up Excel,
+              data handovers, and simple automations so your team spends less
+              time chasing and more time delivering.
+            </p>
+
+            <div class="principles-wrap">
+              <div class="principles">
+                <h3>Practical, not theoretical</h3>
+                <p>
+                  We work with your real process, then build a clean version you
+                  can run week to week.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img
+              class="card-visual"
+              src="../../images/future-automation.png"
+              alt="Automation flow for business operations"
+            />
+          </div>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="how">
+        <div class="section-header">
+          <h1 id="how">How it works</h1>
+          <p>
+            We map your current workflow, simplify the moving parts, and build a
+            system your team can stick with.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>1. Map the information flow</h2>
+            <p>
+              We capture how leads, jobs, and data move today and where time is
+              lost.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>2. Fix the Excel and tracking gaps</h2>
+            <p>
+              We clean up spreadsheets, fix formulas, and reduce double entry.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>3. Add light automation</h2>
+            <p>
+              Simple triggers and reminders that reduce chasing and keep things
+              on track.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="outcomes">
+        <div class="section-header">
+          <h1 id="outcomes">What you get</h1>
+          <p>Clear handovers, consistent records, and less manual effort.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Cleaner handovers</h2>
+            <p>Everyone knows where to find the latest status and files.</p>
+          </article>
+
+          <article class="card">
+            <h2>Fewer manual steps</h2>
+            <p>Cut admin time with basic automation and tidy tracking.</p>
+          </article>
+
+          <article class="card">
+            <h2>Repeatable systems</h2>
+            <p>Processes your team can run without you in the middle.</p>
+          </article>
+        </div>
+      </section>
+
+      <div id="contact-slot"></div>
+    </div>
+    <script>
+      const headerSlot = document.getElementById('header-slot');
+      if (headerSlot) {
+        fetch('/partials/header.html')
+          .then((r) => r.text())
+          .then((html) => {
+            headerSlot.innerHTML = html;
+            const headerEl = headerSlot.querySelector('.site-header');
+            const toggle = headerSlot.querySelector('.header-toggle');
+            if (headerEl && toggle) {
+              toggle.addEventListener('click', () => {
+                const isOpen = headerEl.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', isOpen);
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      const contactSlot = document.getElementById('contact-slot');
+      if (contactSlot) {
+        fetch('/partials/contact.html')
+          .then((r) => r.text())
+          .then((html) => {
+            contactSlot.innerHTML = html;
+          })
+          .catch(() => {});
+      }
+    </script>
+  </body>
+</html>
