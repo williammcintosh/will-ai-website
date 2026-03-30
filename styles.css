@@ -87,6 +87,15 @@ p:last-child {
   margin-bottom: 0;
 }
 
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-red);
+}
+
 .hero-stack {
   display: grid;
   gap: 12px;
@@ -149,6 +158,66 @@ p:last-child {
   border: 1px solid var(--border);
   display: block;
   object-fit: cover;
+}
+
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.proof-item {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  display: grid;
+  gap: 4px;
+}
+
+.proof-item strong {
+  color: var(--ink);
+}
+
+.proof-item span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.utility-section .card,
+.cta-band {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.utility-grid {
+  align-items: start;
+}
+
+.plain-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.plain-list li + li {
+  margin-top: 8px;
+}
+
+.breadcrumb p,
+.breadcrumb a,
+.breadcrumb span {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.cta-band {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(15, 23, 32, 0.05);
 }
 
 .floating-contact {
@@ -311,6 +380,11 @@ p:last-child {
   box-shadow: 0 8px 16px rgba(15, 23, 32, 0.1);
 }
 
+.btn-secondary {
+  background: #fff;
+  color: var(--ink);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -415,6 +489,20 @@ p:last-child {
 }
 
 @media (max-width: 800px) {
+  .hero-layout,
+  .cta-band,
+  .proof-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    order: 2;
+  }
+
+  .hero-stack {
+    order: 1;
+  }
+
   .header-toggle {
     display: inline-flex;
     align-items: center;
@@ -445,6 +533,7 @@ p:last-child {
   .header-nav a {
     width: 100%;
     display: inline-flex;
+    font-size: 18px;
   }
 
   .header-phone {
