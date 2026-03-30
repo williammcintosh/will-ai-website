@@ -382,6 +382,68 @@ p:last-child {
   color: var(--ink);
 }
 
+.eyebrow,
+.tier-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-orange);
+  margin: 0;
+}
+
+.tier-preview-grid {
+  align-items: stretch;
+}
+
+.tier-preview-card,
+.tier-card {
+  align-content: start;
+}
+
+.tier-preview-card--primary,
+.tier-card--featured {
+  border-color: rgba(212, 66, 49, 0.22);
+  background: linear-gradient(180deg, #fff6f2 0%, #ffffff 100%);
+}
+
+.bridge-section {
+  margin-top: -4px;
+}
+
+.bridge-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+}
+
+.tier-section {
+  gap: 18px;
+}
+
+.tier-header {
+  max-width: 760px;
+  display: grid;
+  gap: 6px;
+}
+
+.inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.inline-links a {
+  color: var(--brand-red-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.inline-links a:hover {
+  color: var(--brand-orange);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -594,5 +656,14 @@ p:last-child {
 
   .service-card {
     min-height: auto;
+  }
+
+  .bridge-card {
+    grid-template-columns: 1fr;
+  }
+
+  .bridge-card .btn,
+  .hero-cta .btn {
+    width: 100%;
   }
 }
