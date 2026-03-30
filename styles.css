@@ -1,11 +1,14 @@
 :root {
-  --ink: #0f1720;
-  --muted: #5e6a75;
-  --surface: #f7f8fa;
+  --ink: #1f2130;
+  --muted: #605f72;
+  --surface: #fbfaf8;
   --card: #ffffff;
-  --accent: #c7f58f;
-  --brand-red: #810000;
-  --border: #e2e8f0;
+  --accent: #f4b847;
+  --brand-red: #d44231;
+  --brand-red-dark: #cb3831;
+  --brand-orange: #dd5c35;
+  --brand-amber: #e68e3a;
+  --border: #ece6df;
   --h1: clamp(30px, 4vw, 36px);
   --h2: 22px;
   --h3: 18px;
@@ -26,8 +29,8 @@ html {
 
 body {
   margin: 0;
-  background: radial-gradient(circle at 20% 20%, #f1f5ff, #f7f8fa 45%),
-    radial-gradient(circle at 80% 10%, #eefbf0, #f7f8fa 40%), var(--surface);
+  background: radial-gradient(circle at 20% 20%, #fff5ef, #fbfaf8 46%),
+    radial-gradient(circle at 82% 10%, #fff0dd, #fbfaf8 40%), var(--surface);
   color: var(--ink);
   font-family: 'Space Grotesk', 'IBM Plex Sans', 'Helvetica Neue', Arial,
     sans-serif;
@@ -70,7 +73,7 @@ h1 {
 
 h2 {
   font-size: var(--h2);
-  color: var(--brand-red);
+  color: var(--brand-orange);
 }
 
 h3 {
@@ -360,18 +363,18 @@ p:last-child {
   gap: 8px;
   padding: 11px 14px;
   border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--brand-red);
+  border: 1px solid rgba(203, 56, 49, 0.22);
+  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
   color: #fff;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 10px 18px rgba(15, 23, 32, 0.08);
+  box-shadow: 0 10px 18px rgba(212, 66, 49, 0.22);
   transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 22px rgba(15, 23, 32, 0.12);
+  box-shadow: 0 14px 24px rgba(203, 56, 49, 0.28);
 }
 
 .btn:active {
