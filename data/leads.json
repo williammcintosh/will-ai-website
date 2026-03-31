@@ -23,10 +23,10 @@
       "confidence_score": 95,
       "fit_label": "A",
       "outreach_status": "approved_for_outreach",
-      "last_contacted_at": null,
+      "last_contacted_at": "2026-03-31",
       "outcome": null,
       "next_follow_up_at": null,
-      "notes": null
+      "notes": "Reverted test workflow update"
     },
     {
       "lead_id": "akl-trades-allworkz-electrical-ltd-9fdc9d",
