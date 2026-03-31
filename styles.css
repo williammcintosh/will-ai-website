@@ -655,6 +655,32 @@ p:last-child {
   gap: 14px;
 }
 
+.toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sort-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.sort-field select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+}
+
 .search-field input {
   width: 100%;
   padding: 14px 16px;
@@ -791,6 +817,11 @@ p:last-child {
   font-weight: 700;
 }
 
+.lead-tag--pain {
+  background: rgba(212, 66, 49, 0.12);
+  color: var(--brand-red-dark);
+}
+
 @media (max-width: 800px) {
   body {
     padding-top: 72px;
@@ -855,8 +886,14 @@ p:last-child {
     grid-template-columns: 1fr 1fr;
   }
 
+  .toolbar-row,
   .lead-card-top {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sort-field {
+    justify-content: space-between;
   }
 
   .bridge-card .btn,

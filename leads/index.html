@@ -81,7 +81,7 @@
             <p class="eyebrow">Filter</p>
             <h2 id="leads-controls-title">Find the right lead fast.</h2>
             <p>
-              Filter by outreach status or search by business, suburb, website, email, or phone.
+              Filter by outreach status or search by business, suburb, website, email, phone, or website pain notes.
             </p>
           </div>
 
@@ -91,7 +91,17 @@
                 <span class="sr-only">Search leads</span>
                 <input type="search" id="lead-search" placeholder="Search business, suburb, website, email, phone" />
               </label>
-              <div class="status-pills" id="status-pills"></div>
+              <div class="toolbar-row">
+                <div class="status-pills" id="status-pills"></div>
+                <label class="sort-field" for="sort-by">
+                  <span>Sort</span>
+                  <select id="sort-by">
+                    <option value="pain_desc">Website pain: highest first</option>
+                    <option value="pain_asc">Website pain: lowest first</option>
+                    <option value="name_asc">Business name: A to Z</option>
+                  </select>
+                </label>
+              </div>
             </div>
           </div>
         </section>
@@ -140,6 +150,7 @@
       let leads = [];
       let activeStatus = 'all';
       let searchTerm = '';
+      let sortMode = 'pain_desc';
 
       function formatStatus(value) {
         return statusLabels[value] || value.replace(/_/g, ' ');
@@ -188,7 +199,7 @@
       }
 
       function getFilteredLeads() {
-        return leads.filter((lead) => {
+        const filtered = leads.filter((lead) => {
           const matchesStatus = activeStatus === 'all' || lead.outreach_status === activeStatus;
           if (!matchesStatus) return false;
           if (!searchTerm) return true;
@@ -200,12 +211,27 @@
             lead.phone,
             lead.outreach_status,
             lead.notes,
+            lead.website_status,
+            Array.isArray(lead.website_red_flags) ? lead.website_red_flags.join(' ') : '',
+            lead.website_priority_reason,
           ]
             .filter(Boolean)
             .join(' ')
             .toLowerCase();
           return haystack.includes(searchTerm);
         });
+
+        filtered.sort((a, b) => {
+          if (sortMode === 'name_asc') {
+            return (a.business_name || '').localeCompare(b.business_name || '');
+          }
+          if (sortMode === 'pain_asc') {
+            return (a.website_pain_score || 0) - (b.website_pain_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
+          }
+          return (b.website_pain_score || 0) - (a.website_pain_score || 0) || (b.confidence_score || 0) - (a.confidence_score || 0) || (a.business_name || '').localeCompare(b.business_name || '');
+        });
+
+        return filtered;
       }
 
       function renderLeads() {
@@ -255,8 +281,16 @@
                 <div class="lead-tags">
                   <span class="lead-tag">${escapeHtml(formatStatus(lead.verification_status))}</span>
                   <span class="lead-tag">Confidence ${escapeHtml(lead.confidence_score ?? '—')}</span>
+                  <span class="lead-tag">Website ${escapeHtml(lead.website_status || 'unknown')}</span>
+                  <span class="lead-tag lead-tag--pain">Pain ${escapeHtml(lead.website_pain_score ?? '—')}/5</span>
                 </div>
                 <div class="lead-notes">
+                  <p><strong>Priority reason:</strong> ${escapeHtml(lead.website_priority_reason || '—')}</p>
+                  <p><strong>Website red flags:</strong> ${escapeHtml(
+                    Array.isArray(lead.website_red_flags) && lead.website_red_flags.length
+                      ? lead.website_red_flags.join(', ')
+                      : '—'
+                  )}</p>
                   <p><strong>Last contacted:</strong> ${escapeHtml(lead.last_contacted_at || '—')}</p>
                   <p><strong>Outcome:</strong> ${escapeHtml(lead.outcome || '—')}</p>
                   <p><strong>Next follow-up:</strong> ${escapeHtml(lead.next_follow_up_at || '—')}</p>
@@ -284,6 +318,12 @@
       const searchInput = document.getElementById('lead-search');
       searchInput.addEventListener('input', (event) => {
         searchTerm = event.target.value.trim().toLowerCase();
+        renderLeads();
+      });
+
+      const sortSelect = document.getElementById('sort-by');
+      sortSelect.addEventListener('change', (event) => {
+        sortMode = event.target.value;
         renderLeads();
       });
     </script>
