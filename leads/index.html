@@ -60,15 +60,15 @@
                 </div>
                 <div class="summary-stat">
                   <span class="summary-number" id="summary-approved">—</span>
-                  <span class="summary-label">Approved</span>
+                  <span class="summary-label">🟢 Active</span>
                 </div>
                 <div class="summary-stat">
                   <span class="summary-number" id="summary-review">—</span>
-                  <span class="summary-label">Need review</span>
+                  <span class="summary-label">🟡 Check</span>
                 </div>
                 <div class="summary-stat">
                   <span class="summary-number" id="summary-rejected">—</span>
-                  <span class="summary-label">Rejected</span>
+                  <span class="summary-label">🔴 Parked</span>
                 </div>
               </div>
               <p class="small-note">Updated: <span id="summary-updated">—</span></p>
@@ -81,7 +81,7 @@
             <p class="eyebrow">Filter</p>
             <h2 id="leads-controls-title">Find the right lead fast.</h2>
             <p>
-              Filter by outreach status or search by business, suburb, website, email, phone, or website pain notes.
+              Filter by status or search by business, suburb, website, email, phone, or website notes.
             </p>
           </div>
 
@@ -96,8 +96,8 @@
                 <label class="sort-field" for="sort-by">
                   <span>Sort</span>
                   <select id="sort-by">
-                    <option value="pain_desc">Website pain: highest first</option>
-                    <option value="pain_asc">Website pain: lowest first</option>
+                    <option value="pain_desc">Website opportunity: highest first</option>
+                    <option value="pain_asc">Website opportunity: lowest first</option>
                     <option value="name_asc">Business name: A to Z</option>
                   </select>
                 </label>
@@ -138,13 +138,13 @@
 
       const statusLabels = {
         all: 'All',
-        approved_for_outreach: 'Approved',
-        contacted: 'Contacted',
-        replied_not_interested: 'Not interested',
-        follow_up_later: 'Follow up later',
-        won: 'Won',
-        needs_manual_review: 'Needs review',
-        rejected: 'Rejected',
+        approved_for_outreach: '🟢 Active',
+        contacted: '🔵 Contacted',
+        replied_not_interested: '⚫ Not interested',
+        follow_up_later: '🟣 Follow up later',
+        won: '⭐ Won',
+        needs_manual_review: '🟡 Check',
+        rejected: '🔴 Parked',
       };
 
       let leads = [];
@@ -282,7 +282,7 @@
                   <span class="lead-tag">${escapeHtml(formatStatus(lead.verification_status))}</span>
                   <span class="lead-tag">Confidence ${escapeHtml(lead.confidence_score ?? '—')}</span>
                   <span class="lead-tag">Website ${escapeHtml(lead.website_status || 'unknown')}</span>
-                  <span class="lead-tag lead-tag--pain">Pain ${escapeHtml(lead.website_pain_score ?? '—')}/5</span>
+                  <span class="lead-tag lead-tag--pain">Opportunity ${escapeHtml(lead.website_pain_score ?? '—')}/5</span>
                 </div>
                 <div class="lead-notes">
                   <p><strong>Priority reason:</strong> ${escapeHtml(lead.website_priority_reason || '—')}</p>
