@@ -822,6 +822,48 @@ p:last-child {
   color: var(--brand-red-dark);
 }
 
+.manamaths-page {
+  gap: 32px;
+}
+
+.manamaths-summary-card {
+  align-content: start;
+}
+
+.objective-section {
+  gap: 18px;
+}
+
+.worksheet-grid {
+  align-items: stretch;
+}
+
+.worksheet-card {
+  align-content: start;
+  min-height: 100%;
+}
+
+.worksheet-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.worksheet-link {
+  white-space: nowrap;
+}
+
+.worksheet-card a {
+  color: var(--brand-red-dark);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.worksheet-card a:hover {
+  color: var(--brand-orange);
+}
+
 @media (max-width: 800px) {
   body {
     padding-top: 72px;
