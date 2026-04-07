@@ -108,6 +108,12 @@ p:last-child {
   color: var(--brand-orange);
 }
 
+.hero-title {
+  font-size: clamp(28px, 4.3vw, 42px);
+  color: var(--ink);
+  margin: 0;
+}
+
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
