@@ -181,6 +181,62 @@ p:last-child {
   min-height: 220px;
 }
 
+.package-card {
+  min-height: 280px;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: 26px;
+}
+
+.package-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.package-card-title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.package-card-icon {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.package-card-copy {
+  margin: 0;
+  max-width: 18ch;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.package-card-price {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.package-card--spark {
+  background: linear-gradient(180deg, #fff9ef 0%, #ffffff 100%);
+}
+
+.package-card--blaze {
+  background: linear-gradient(180deg, #fff4ef 0%, #ffffff 100%);
+}
+
+.package-card--engine {
+  background: linear-gradient(180deg, #fff7f2 0%, #ffffff 100%);
+}
+
 .utility-card {
   min-height: 100%;
 }
