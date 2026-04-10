@@ -10,6 +10,7 @@ WORKSPACE_ROOT = SITE_ROOT.parents[1]
 SOURCE_ROOT = WORKSPACE_ROOT / 'manamaths'
 TARGET_ROOT = SITE_ROOT / 'manamaths'
 TARGET_PDFS_ROOT = TARGET_ROOT / 'pdfs'
+TARGET_OBJECTIVES_ROOT = TARGET_ROOT / 'objectives'
 
 LEVEL_ORDER = ['foundation', 'proficient', 'excellence']
 LEVEL_LABELS = {
@@ -75,6 +76,56 @@ def copy_pdfs(objectives: list[dict]) -> None:
         objective_target.mkdir(parents=True, exist_ok=True)
         for pdf in objective['pdfs']:
             shutil.copy2(pdf['source_path'], objective_target / pdf['file_name'])
+
+
+def rewrite_objective_html(source_html: str, slug: str) -> str:
+    rewritten = source_html
+    for level in LEVEL_ORDER:
+        rewritten = rewritten.replace(
+            f'../{slug}/{level}-questions.pdf',
+            f'../pdfs/{slug}/{level}-questions.pdf',
+        )
+    return rewritten
+
+
+
+def copy_objective_pages(objectives: list[dict]) -> None:
+    TARGET_OBJECTIVES_ROOT.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(SOURCE_ROOT / 'styles.css', TARGET_ROOT / 'styles.css')
+
+    for asset_name in ('favicon.png', 'header-logo.png'):
+        source_asset = SOURCE_ROOT / asset_name
+        if source_asset.exists():
+            shutil.copy2(source_asset, TARGET_ROOT / asset_name)
+
+    live_slugs = {objective['slug'] for objective in objectives}
+
+    for existing in TARGET_OBJECTIVES_ROOT.glob('lo-yr9-*.html'):
+        if existing.stem not in live_slugs:
+            existing.unlink()
+
+    for existing in TARGET_ROOT.glob('lo-yr9-*'):
+        if existing.is_dir() and existing.name not in live_slugs:
+            shutil.rmtree(existing)
+
+    for objective in objectives:
+        slug = objective['slug']
+        source_html = SOURCE_ROOT / 'objectives' / f'{slug}.html'
+        if source_html.exists():
+            (TARGET_OBJECTIVES_ROOT / source_html.name).write_text(
+                rewrite_objective_html(source_html.read_text(encoding='utf-8'), slug),
+                encoding='utf-8',
+            )
+
+        source_diagrams = SOURCE_ROOT / slug / 'web-diagrams'
+        target_diagrams = TARGET_ROOT / slug / 'web-diagrams'
+        if source_diagrams.exists():
+            target_diagrams.parent.mkdir(parents=True, exist_ok=True)
+            if target_diagrams.exists():
+                shutil.rmtree(target_diagrams)
+            shutil.copytree(source_diagrams, target_diagrams)
+        elif target_diagrams.exists():
+            shutil.rmtree(target_diagrams)
 
 
 def render_index(objectives: list[dict]) -> str:
@@ -209,9 +260,10 @@ def main() -> int:
         raise SystemExit('No worksheet PDFs found in manamaths repo.')
 
     copy_pdfs(objectives)
+    copy_objective_pages(objectives)
     TARGET_ROOT.mkdir(parents=True, exist_ok=True)
     (TARGET_ROOT / 'index.html').write_text(render_index(objectives), encoding='utf-8')
-    print(f'Synced {sum(len(o["pdfs"]) for o in objectives)} PDFs across {len(objectives)} learning objectives.')
+    print(f'Synced {sum(len(o["pdfs"]) for o in objectives)} PDFs and {len(objectives)} objective pages.')
     return 0
 
 
